@@ -1,5 +1,8 @@
 {
-  "name": "rtc-components",
+  "name": "@AlexanderGridin/rtc-components-lib",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/AlexanderGridin"
+  },
   "version": "0.0.1",
   "description": "Components library for React Trello Clone",
   "scripts": {
