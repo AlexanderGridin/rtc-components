@@ -9,8 +9,10 @@ import { IconButtonTestId } from "./static-data";
 const { Button, Icon, Placeholder } = IconButtonTestId;
 
 describe("IconButton", () => {
-  it("renders with placeholder", () => {
+  it("renders with placeholder", async () => {
     const handleClick = jest.fn();
+    const user = userEvent.setup();
+
     render(<IconButton data-testid={Button} icon={MaterialIcon.None} onClick={handleClick} />);
 
     expect(screen.getByTestId(Button)).toBeInTheDocument();
@@ -18,12 +20,14 @@ describe("IconButton", () => {
 
     expect(screen.queryByTestId(Icon)).toBeNull();
 
-    userEvent.click(screen.getByTestId(Button));
+    await user.click(screen.getByTestId(Button));
     expect(handleClick).toBeCalledTimes(1);
   });
 
-  it("renders with icon", () => {
+  it("renders with icon", async () => {
     const handleClick = jest.fn();
+    const user = userEvent.setup();
+
     render(<IconButton data-testid={Button} icon={MaterialIcon.Home} onClick={handleClick} />);
 
     expect(screen.getByTestId(Button)).toBeInTheDocument();
@@ -31,7 +35,7 @@ describe("IconButton", () => {
 
     expect(screen.queryByTestId(Placeholder)).toBeNull();
 
-    userEvent.click(screen.getByTestId(Button));
+    await user.click(screen.getByTestId(Button));
     expect(handleClick).toBeCalledTimes(1);
   });
 });

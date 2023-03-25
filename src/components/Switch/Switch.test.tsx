@@ -23,24 +23,28 @@ describe("Switch", () => {
     expect(screen.getByText(labelText)).toBeInTheDocument();
   });
 
-  it("correctly handles value change", () => {
+  it("correctly handles value change", async () => {
     const handleChange = jest.fn((value) => value);
+    const user = userEvent.setup();
+
     render(<SwitchComponent onChange={handleChange} />);
 
-    userEvent.click(screen.getByTestId(Switch));
-    userEvent.click(screen.getByTestId(Switch));
+    await user.click(screen.getByTestId(Switch));
+    await user.click(screen.getByTestId(Switch));
 
     expect(handleChange).toBeCalledTimes(2);
     expect(handleChange.mock.results[0].value).toBeTruthy();
     expect(handleChange.mock.results[1].value).toBeFalsy();
   });
 
-  it("correctly works with initial value", () => {
+  it("correctly works with initial value", async () => {
     const handleChange = jest.fn((value) => value);
+    const user = userEvent.setup();
+
     render(<SwitchComponent initialValue onChange={handleChange} />);
 
-    userEvent.click(screen.getByTestId(Switch));
-    userEvent.click(screen.getByTestId(Switch));
+    await user.click(screen.getByTestId(Switch));
+    await user.click(screen.getByTestId(Switch));
 
     expect(handleChange).toBeCalledTimes(2);
     expect(handleChange.mock.results[0].value).toBeFalsy();

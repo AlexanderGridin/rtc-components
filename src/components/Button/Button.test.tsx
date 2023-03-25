@@ -9,8 +9,10 @@ import { ButtonTestId } from "./static-data";
 const { Button, Icon, Text } = ButtonTestId;
 
 describe("Button", () => {
-  it("renders without icon", () => {
+  it("renders without icon", async () => {
     const handleClick = jest.fn();
+    const user = userEvent.setup();
+
     render(
       <ButtonComponent data-testid={Button} onClick={handleClick}>
         Button text
@@ -18,7 +20,7 @@ describe("Button", () => {
     );
 
     const button = screen.getByTestId(Button);
-    userEvent.click(button);
+    await user.click(button);
     expect(handleClick).toHaveBeenCalledTimes(1);
 
     const buttonIcon = screen.queryByTestId(Icon);
@@ -28,8 +30,10 @@ describe("Button", () => {
     expect(buttonText).toBeInTheDocument();
   });
 
-  it("renders with icon", () => {
+  it("renders with icon", async () => {
     const handleClick = jest.fn();
+    const user = userEvent.setup();
+
     render(
       <ButtonComponent data-testid={Button} icon={MaterialIcon.Add} onClick={handleClick}>
         Test
@@ -37,7 +41,7 @@ describe("Button", () => {
     );
 
     const button = screen.getByTestId(Button);
-    userEvent.click(button);
+    await user.click(button);
     expect(handleClick).toHaveBeenCalledTimes(1);
 
     const buttonIcon = screen.getByTestId(Icon);
@@ -47,12 +51,14 @@ describe("Button", () => {
     expect(buttonText).toBeInTheDocument();
   });
 
-  it("renders with icon only", () => {
+  it("renders with icon only", async () => {
     const handleClick = jest.fn();
+    const user = userEvent.setup();
+
     render(<ButtonComponent data-testid={Button} icon={MaterialIcon.Add} isIconOnly onClick={handleClick} />);
 
     const button = screen.getByTestId(Button);
-    userEvent.click(button);
+    await user.click(button);
     expect(handleClick).toHaveBeenCalledTimes(1);
 
     const buttonIcon = screen.getByTestId(Icon);
