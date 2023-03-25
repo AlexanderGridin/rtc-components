@@ -4,6 +4,7 @@ import typescript from "@rollup/plugin-typescript";
 import dts from "rollup-plugin-dts";
 import terser from "@rollup/plugin-terser";
 import peerDepsExternal from "rollup-plugin-peer-deps-external";
+import postcss from "rollup-plugin-postcss";
 
 import packageJson from "./package.json" assert { type: "json" };
 
@@ -29,6 +30,9 @@ export default [
       typescript({
         tsconfig: "./tsconfig.json",
       }),
+      postcss({
+        modules: true,
+      }),
       terser(),
     ],
   },
@@ -41,5 +45,6 @@ export default [
       },
     ],
     plugins: [dts()],
+    external: [/\.css$/],
   },
 ];
