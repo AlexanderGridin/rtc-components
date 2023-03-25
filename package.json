@@ -2,13 +2,25 @@
   "name": "rtc-components",
   "version": "0.0.1",
   "description": "Components library for React Trello Clone",
-  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "rollup -c"
   },
   "author": "Oleksandr Hridin",
   "license": "ISC",
   "devDependencies": {
-    "prettier": "^2.8.7"
-  }
+    "@rollup/plugin-commonjs": "^24.0.1",
+    "@rollup/plugin-node-resolve": "^15.0.1",
+    "@rollup/plugin-typescript": "^11.0.0",
+    "@types/react": "^18.0.29",
+    "prettier": "^2.8.7",
+    "react": "^18.2.0",
+    "rollup": "^3.20.2",
+    "rollup-plugin-dts": "^5.3.0",
+    "tslib": "^2.5.0",
+    "typescript": "^5.0.2"
+  },
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "files": ["dist"],
+  "types": "dist/index.d.ts"
 }
