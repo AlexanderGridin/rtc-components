@@ -63,6 +63,9 @@
   ],
   "types": "dist/index.d.ts",
   "dependencies": {
+    "@emotion/react": "^11.10.6",
+    "@emotion/styled": "^11.10.6",
+    "@mui/material": "^5.11.14",
     "styled-components": "^5.3.9"
   }
 }
