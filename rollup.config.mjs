@@ -30,6 +30,7 @@ export default [
       commonjs(),
       typescript({
         tsconfig: "./tsconfig.json",
+        exclude: ["**/__tests__", "**/*.test.ts", "**/*.test.tsx", "**/*.config.ts", "**/*.stories.tsx"],
       }),
       postcss({
         modules: true,
