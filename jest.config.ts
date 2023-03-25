@@ -5,7 +5,7 @@ const config: Config = {
   moduleNameMapper: {
     ".(css|less|scss)$": "identity-obj-proxy",
   },
-  setupFilesAfterEnv: ["./src/setupTests.config.ts"],
+  setupFilesAfterEnv: ["./setupTests.config.ts"],
 };
 
 export default config;
