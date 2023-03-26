@@ -5,6 +5,7 @@ import dts from "rollup-plugin-dts";
 import terser from "@rollup/plugin-terser";
 import peerDepsExternal from "rollup-plugin-peer-deps-external";
 import postcss from "rollup-plugin-postcss";
+import alias from "@rollup/plugin-alias";
 
 import packageJson from "./package.json" assert { type: "json" };
 
@@ -16,12 +17,12 @@ export default [
       {
         file: packageJson.main,
         format: "cjs",
-        sourceMap: true,
+        sourcemap: true,
       },
       {
         file: packageJson.module,
         format: "esm",
-        sourceMap: true,
+        sourcemap: true,
       },
     ],
     plugins: [
@@ -36,7 +37,7 @@ export default [
           "**/*.test.tsx",
           "**/*.config.ts",
           "**/*.stories.tsx",
-          "**/storybook",
+          "**/storybook/**",
         ],
       }),
       postcss({
@@ -53,7 +54,12 @@ export default [
         format: "esm",
       },
     ],
-    plugins: [dts()],
+    plugins: [
+      alias({
+        entries: [{ find: "shared/models", replacement: "dist/esm/types/shared/models/index.d.ts" }],
+      }),
+      dts(),
+    ],
     external: [/\.css$/],
   },
 ];
