@@ -1,6 +1,7 @@
 import { render, screen } from "@testing-library/react";
+
 import { AppLayout } from "./AppLayout";
-import { AppLayoutTestId } from "./static-data/AppLayoutTestId";
+import { AppLayoutTestId } from "./static-data";
 
 const { Layout, Aside, Main } = AppLayoutTestId;
 

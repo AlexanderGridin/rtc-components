@@ -1,6 +1,7 @@
 import { render, screen } from "@testing-library/react";
+
 import { AppPageLayout } from "./AppPageLayout";
-import { AppPageLayoutTestId } from "./static-data/AppPageLayoutTestId";
+import { AppPageLayoutTestId } from "./static-data";
 
 const { Layout, Header, Content, Spinner } = AppPageLayoutTestId;
 
