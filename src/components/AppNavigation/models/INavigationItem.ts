@@ -1,4 +1,4 @@
-import { MaterialIcon } from "@alexandergridin/rtc-components-lib";
+import { MaterialIcon } from "../../";
 
 export interface INavigationItem {
   to: string;
