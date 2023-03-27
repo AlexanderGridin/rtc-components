@@ -3,12 +3,12 @@
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/AlexanderGridin"
   },
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Components library for React Trello Clone",
   "scripts": {
     "build": "rollup -c",
     "test": "jest",
-    "sb": "start-storybook -p 6006",
+    "dev": "start-storybook -p 6006",
     "build-sb": "build-storybook"
   },
   "author": "Oleksandr Hridin",
@@ -46,6 +46,7 @@
     "prettier": "^2.8.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-router-dom": "^6.9.0",
     "rollup": "^3.20.2",
     "rollup-plugin-dts": "^5.3.0",
     "rollup-plugin-peer-deps-external": "^2.2.4",
@@ -55,13 +56,13 @@
     "typescript": "^4.9.5"
   },
   "peerDependencies": {
-    "react": "^18.2.0"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.9.0"
   },
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "types": "dist/index.d.ts",
   "dependencies": {
     "@emotion/react": "^11.10.6",

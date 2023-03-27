@@ -1,5 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+import { act } from "react-dom/test-utils";
 
 import { SwitchTestId } from "./static-data";
 import { Switch as SwitchComponent } from "./Switch";
@@ -29,8 +30,10 @@ describe("Switch", () => {
 
     render(<SwitchComponent onChange={handleChange} />);
 
-    await user.click(screen.getByTestId(Switch));
-    await user.click(screen.getByTestId(Switch));
+    await act(async () => {
+      await user.click(screen.getByTestId(Switch));
+      await user.click(screen.getByTestId(Switch));
+    });
 
     expect(handleChange).toBeCalledTimes(2);
     expect(handleChange.mock.results[0].value).toBeTruthy();
@@ -43,8 +46,10 @@ describe("Switch", () => {
 
     render(<SwitchComponent initialValue onChange={handleChange} />);
 
-    await user.click(screen.getByTestId(Switch));
-    await user.click(screen.getByTestId(Switch));
+    await act(async () => {
+      await user.click(screen.getByTestId(Switch));
+      await user.click(screen.getByTestId(Switch));
+    });
 
     expect(handleChange).toBeCalledTimes(2);
     expect(handleChange.mock.results[0].value).toBeFalsy();

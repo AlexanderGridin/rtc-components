@@ -1,5 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+import { act } from "react-dom/test-utils";
 
 import { MaterialIcon } from "../Icon";
 
@@ -20,7 +21,9 @@ describe("Button", () => {
     );
 
     const button = screen.getByTestId(Button);
-    await user.click(button);
+    await act(async () => {
+      await user.click(button);
+    });
     expect(handleClick).toHaveBeenCalledTimes(1);
 
     const buttonIcon = screen.queryByTestId(Icon);
@@ -41,7 +44,9 @@ describe("Button", () => {
     );
 
     const button = screen.getByTestId(Button);
-    await user.click(button);
+    await act(async () => {
+      await user.click(button);
+    });
     expect(handleClick).toHaveBeenCalledTimes(1);
 
     const buttonIcon = screen.getByTestId(Icon);
@@ -58,7 +63,9 @@ describe("Button", () => {
     render(<ButtonComponent data-testid={Button} icon={MaterialIcon.Add} isIconOnly onClick={handleClick} />);
 
     const button = screen.getByTestId(Button);
-    await user.click(button);
+    await act(async () => {
+      await user.click(button);
+    });
     expect(handleClick).toHaveBeenCalledTimes(1);
 
     const buttonIcon = screen.getByTestId(Icon);
