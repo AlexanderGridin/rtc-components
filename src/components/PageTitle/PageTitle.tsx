@@ -1,6 +1,7 @@
 import { IChildren, IClassName } from "shared/models";
 
-import { Icon, MaterialIcon, StyledFlexRow } from "../";
+import { Icon, MaterialIcon } from "../Icon";
+import { StyledFlexRow } from "../StyledFlexRow";
 
 import style from "./PageTitle.module.css";
 

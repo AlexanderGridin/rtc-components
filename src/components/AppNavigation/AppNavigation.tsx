@@ -1,6 +1,8 @@
 import { NavLink } from "react-router-dom";
 
-import { Icon, StyledFlexRow } from "../";
+import { Icon } from "../Icon";
+import { StyledFlexRow } from "../StyledFlexRow";
+
 import { INavigationItem } from "./models";
 import { getLinkClassName } from "./utils";
 

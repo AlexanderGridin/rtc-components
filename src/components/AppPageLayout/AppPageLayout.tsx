@@ -2,9 +2,9 @@ import { ReactNode } from "react";
 
 import { IChildren } from "shared/models";
 
-import { Spinner } from "../";
-import { AppPageLayoutTestId } from "./static-data";
+import { Spinner } from "../Spinner";
 
+import { AppPageLayoutTestId } from "./static-data";
 import style from "./AppPageLayout.module.css";
 
 const { Layout: LayoutId, Header: HeaderId, Content: ContentId, Spinner: SpinnerId } = AppPageLayoutTestId;
