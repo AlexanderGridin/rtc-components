@@ -8,7 +8,7 @@
   "scripts": {
     "build": "rollup -c",
     "test": "jest",
-    "sb": "start-storybook -p 6006",
+    "dev": "start-storybook -p 6006",
     "build-sb": "build-storybook"
   },
   "author": "Oleksandr Hridin",
